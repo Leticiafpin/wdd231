@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course Home Page for WDD231">
+    <title>Course Home Page</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/myphoto.jpeg" alt="Leticia Figueiredo">
+        <span>Leticia Figueiredo</span>
+        <button id="menuButton" aria-label="Open navigation menu">☰</button>
+        <nav id="mainNav" class="hidden">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">GitHub Profile</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <p>Home</p>
+        <!-- Course Work Section -->
+        <h1>Course Work</h1>
+        <!-- Course List -->
+        <div class="coursesw">
+            <p class=" ">.</p>
+            <p class=" ">.</p>
+            <p class=" ">.</p>
+        </div>
+
+        <!-- Location Section -->
+        <h2>Faro, Portugal</h2>
+        <img src="images/Faro.jpg" alt="Faro">
+        <p>Falesia</p>
+
+        <!-- Certificate Section -->
+        <section class="Webpro">
+            <h2>Web and Computer Programming Certificate</h2>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button data-category="all">All</button>
+                <button data-category="CSE">CSE</button>
+                <button data-category="WDD">WDD</button>
+            </div>
+
+            <!-- Course List -->
+            <div class="courses">
+                <p class="course CSE">CSE 110</p>
+                <p class="course WDD">WDD 130</p>
+                <p class="course CSE">CSE 111</p>
+                <p class="course CSE">CSE 210</p>
+                <p class="course WDD">WDD 131</p>
+                <p class="course WDD">WDD 231</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> 🌸 Leticia Figueiredo 🌸 Portugal</p>
+        <p id="lastModified">Last Update: <span id="modifiedDate"></span></p>
+    </footer>
+</body>
+</html>

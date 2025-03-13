@@ -1,0 +1,124 @@
+/* small.css */
+
+/* Reinicialização de estilo básico */
+body {
+    margin: 0;
+    
+}
+
+h1, h2, h3, ul, li {
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #003f8c;
+    width: 50%;
+}
+
+/* Estilos globais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: white;
+    line-height: 1.5;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display:flex;
+    flex-direction: ;
+    align-items: center;
+    text-align: center;
+    background-color: #05407b;
+    color: white;
+    padding: 10px;
+}
+
+header img {
+    width: 60px; /* Maior destaque para o avatar no mobile */
+    margin-bottom: 10px;
+}
+
+header span {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button#menuButton {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: none; /* Hidden by default */
+    background-color: black;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: black;
+}
+
+/* Main */
+main {
+    margin: 20px 0;
+}
+
+main img {
+    width: auto;
+    border-radius: 10px;
+    margin: 15px 0;
+    height: auto;
+    text-align: center;
+}
+
+.filter-buttons button {
+    padding: 10px 15px;
+    border: 10%;
+    margin: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 25%;
+}
+
+.filter-buttons button:hover {
+    background-color: #005bb5;
+}
+
+.courses p {
+    background-color: rgb(113, 32, 21);
+    color: white;
+    margin:  auto;
+    padding: auto;
+    border-radius: 5px ;
+    width: 500px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #333;
+    margin-top: 30px;
+}

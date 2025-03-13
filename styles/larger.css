@@ -1,0 +1,58 @@
+/* larger.css */
+
+/* Estilos específicos para telas maiores */
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    header span {
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste para o menu de navegação em linha */
+    nav ul {
+        display: flex; /* Horizontal menu for larger screens */
+        justify-content: flex-end;
+        gap: 15px;
+        background: b;
+    }
+
+    nav ul li a {
+        padding: 5px 15px;
+        color: #0073e6;
+        background: none;
+    }
+
+    nav ul li a:hover {
+        background-color: #f0f0f0;
+        color: #005bb5;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    /* Seções com mais espaçamento */
+    section {
+        margin-bottom: 40px;
+    }
+
+    section h2 {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        margin-top: 40px;
+        text-align: center;
+    }
+}
