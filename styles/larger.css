@@ -28,13 +28,20 @@
         display: flex; /* Horizontal menu for larger screens */
         justify-content: column;
         gap: 15px;
-        background: b;
+        background: none;
+    }
+
+    @media (min-width: 768px) {
+        nav ul {
+            flex-direction: row; /* Para telas maiores */
+            justify-content: space-between;
+        }
     }
 
     nav ul li a {
         padding: 5px 15px;
-        color: #0073e6;
-        background: none;
+        color: white;
+        background: black;
     }
 
     nav ul li a:hover {
