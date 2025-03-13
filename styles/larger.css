@@ -4,6 +4,7 @@
 @media (min-width: 768px) {
     body {
         padding: 20px;
+        font-family: 'Roboto' , sans-serif;
     }
 
     header {
@@ -17,10 +18,15 @@
         font-size: 1.2rem;
     }
 
+    img {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
     /* Ajuste para o menu de navegação em linha */
     nav ul {
         display: flex; /* Horizontal menu for larger screens */
-        justify-content: flex-end;
+        justify-content: column;
         gap: 15px;
         background: b;
     }
@@ -34,6 +40,11 @@
     nav ul li a:hover {
         background-color: #f0f0f0;
         color: #005bb5;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #005bb5
     }
 
     main {
