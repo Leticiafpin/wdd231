@@ -29,7 +29,7 @@ body {
 /* Header */
 header {
     display:flex;
-    flex-direction: ;
+    flex-direction:flex ;
     align-items: center;
     text-align: center;
     background-color: #05407b;
