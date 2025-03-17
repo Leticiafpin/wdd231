@@ -1,0 +1,18 @@
+[
+    {
+        "name": "ABC Hardware",
+        "address": "123 Main Street, Faro, Portugal",
+        "phone": "+351 123 456 789",
+        "website": "https://abchardware.com",
+        "image": "images/abc-hardware.jpg",
+        "membership": 3
+    },
+    {
+        "name": "Sunset Café",
+        "address": "45 Sunset Blvd, Faro, Portugal",
+        "phone": "+351 987 654 321",
+        "website": "https://sunsetcafe.pt",
+        "image": "images/sunset-cafe.jpg",
+        "membership": 2
+    }
+]

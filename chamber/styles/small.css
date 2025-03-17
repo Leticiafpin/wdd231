@@ -1,0 +1,19 @@
+#members-container {
+    display: grid;
+    gap: 1rem;
+}
+
+#members-container.grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+#members-container.list {
+    grid-template-columns: 1fr;
+}
+
+.member {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
