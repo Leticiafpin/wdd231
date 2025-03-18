@@ -1,137 +1,57 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('members-container');
-    const gridViewBtn = document.getElementById('gridView');
-    const listViewBtn = document.getElementById('listView');
-    const yearElement = document.getElementById('year');
-    const lastModifiedElement = document.getElementById('lastModified');
-
-    // Atualiza o ano e última modificação
+document.addEventListener("DOMContentLoaded", () => {
+    // ** Atualização de Ano e Última Modificação **
+    const yearElement = document.getElementById("year");
+    const lastModifiedElement = document.getElementById("lastModified");
     yearElement.textContent = new Date().getFullYear();
     lastModifiedElement.textContent = `Last Modified: ${document.lastModified}`;
 
-    // Fetch JSON data
-    const response = await fetch('data/members.json');
-    const members = await response.json();
+    // ** Função para capitalizar palavras **
+    const capitalizeWords = (str) =>
+        str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
-    // Render members
-    const renderMembers = (view) => {
-        container.innerHTML = '';
-        container.className = view;
-
-        members.forEach(member => {
-            const memberDiv = document.createElement('div');
-            memberDiv.classList.add('member');
-
-            memberDiv.innerHTML = `
-                <img src="${member.image}" alt="${member.name}">
-                <h3>${member.name}</h3>
-                <p>${member.address}</p>
-                <p>${member.phone}</p>
-                <a href="${member.website}" target="_blank">Visit Website</a>
-            `;
-
-            container.appendChild(memberDiv);
-        });
-    };
-
-    // Event listeners for view toggles
-    gridViewBtn.addEventListener('click', () => renderMembers('grid'));
-    listViewBtn.addEventListener('click', () => renderMembers('list'));
-
-    // Default view
-    renderMembers('grid');
-});
-
-
-const apiKey = "YOUR_API_KEY"; // Replace with OpenWeatherMap API Key
-const city = "Timbuktu";
-const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
-
-document.addEventListener("DOMContentLoaded", () => {
-    const tempElement = document.getElementById("current-temp");
-    const descElement = document.getElementById("weather-desc");
-    const forecast = document.getElementById("forecast");
+    // ** Atualizar Previsão do Tempo **
+    const apiKey = "YOUR_API_KEY"; // Substitua pela sua chave da API OpenWeatherMap
+    const city = "Faro";
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
 
     fetch(weatherUrl)
-        .then((response) => response.json())
-        .then((data) => {
-            tempElement.textContent = `Temperature: ${Math.round(data.list[0].main.temp)}°C`;
-            descElement.textContent = `Description: ${data.list[0].weather.map(w => w.description).join(", ")}`;
+        .then(response => response.json())
+        .then(data => {
+            // Atualiza dados do clima atual
+            document.getElementById("current-temp").textContent = `${Math.round(data.list[0].main.temp)}°C`;
+            document.getElementById("weather-desc").textContent = capitalizeWords(data.list[0].weather[0].description);
 
-            // Format forecast
+            // Previsão para 3 dias
             for (let i = 1; i <= 3; i++) {
-                document.getElementById(`day${i}`).textContent = `${Math.round(data.list[i * 8].main.temp)}°C`;
+                document.getElementById(`day${i}-forecast`).textContent = `${Math.round(data.list[i * 8].main.temp)}°C`;
             }
         })
-        .catch((error) => console.error("Error fetching weather data:", error));
-});
+        .catch(error => console.error("Erro ao buscar previsão do tempo:", error));
 
-document.addEventListener("DOMContentLoaded", () => {
+    // ** Exibir Membros Destaque **
     const spotlightContainer = document.getElementById("spotlights-container");
 
     fetch("data/members.json")
-        .then((response) => response.json())
-        .then((members) => {
+        .then(response => response.json())
+        .then(members => {
+            // Filtra membros Gold (3) e Silver (2)
             const goldSilverMembers = members.filter(member => member.membership === 2 || member.membership === 3);
-            const selectedMembers = goldSilverMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
 
-            selectedMembers.forEach(member => {
-                const card = document.createElement("div");
-                card.classList.add("spotlight-card");
+            // Seleciona 2 ou 3 membros aleatoriamente
+            const selected = goldSilverMembers.sort(() => Math.random() - 0.5).slice(0, 3);
 
-                card.innerHTML = `
-                    <img src="${member.image}" alt="${member.name}">
-                    <h3>${member.name}</h3>
-                    <p>${member.address}</p>
-                    <p>${member.phone}</p>
-                    <a href="${member.website}" target="_blank">Visit Website</a>
-                `;
-
-                spotlightContainer.appendChild(card);
-            });
-        })
-        .catch(error => console.error("Error fetching member spotlights:", error));
-});
-
-
-const capitalizeWords = (str) =>
-    str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-
-fetch('https://api.openweathermap.org/data/2.5/weather?q=Faro&units=metric&appid=YOUR_API_KEY')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('current-temp').textContent = `${Math.round(data.main.temp)}°C`;
-        document.getElementById('weather-desc').textContent = capitalizeWords(data.weather[0].description);
-    });
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const spotlightContainer = document.getElementById('spotlights-container');
-    
-        // Fetch JSON data
-        fetch('data/members.json')
-            .then(response => response.json())
-            .then(members => {
-                // Filtra membros gold (3) e silver (2)
-                const goldSilverMembers = members.filter(member => member.membership === 2 || member.membership === 3);
-    
-                // Seleciona 2 ou 3 membros aleatoriamente
-                const selected = goldSilverMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
-    
-                // Cria cartões de destaque
-                selected.forEach(member => {
-                    const card = document.createElement('div');
-                    card.classList.add('spotlight-card');
-                    card.innerHTML = `
+            // Renderiza cada cartão
+            selected.forEach(member => {
+                const card = `
+                    <div class="spotlight-card">
                         <img src="${member.image}" alt="${member.name}">
                         <h3>${member.name}</h3>
                         <p>${member.address}</p>
                         <p>${member.phone}</p>
                         <a href="${member.website}" target="_blank">Visit Website</a>
-                    `;
-                    spotlightContainer.appendChild(card);
-                });
-            })
-            .catch(error => console.error('Erro ao carregar os membros:', error));
-    });
-    
+                    </div>`;
+                spotlightContainer.innerHTML += card;
+            });
+        })
+        .catch(error => console.error("Erro ao carregar membros destaque:", error));
+});
