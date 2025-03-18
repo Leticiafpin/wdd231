@@ -92,3 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error("Error fetching member spotlights:", error));
 });
+
+
+const capitalizeWords = (str) =>
+    str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+fetch('https://api.openweathermap.org/data/2.5/weather?q=Faro&units=metric&appid=YOUR_API_KEY')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('current-temp').textContent = `${Math.round(data.main.temp)}°C`;
+        document.getElementById('weather-desc').textContent = capitalizeWords(data.weather[0].description);
+    });

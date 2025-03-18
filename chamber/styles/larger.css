@@ -26,15 +26,19 @@ a:hover {
 }
 
 @media (min-width: 768px) {
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .hero-text {
+        font-size: 1.2rem;
+        padding: 20px;
     }
 
     nav ul {
         display: flex;
         gap: 20px;
+    }
+
+    .spotlights {
+        display: flex;
+        gap: 15px;
     }
 }
 
