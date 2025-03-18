@@ -25,26 +25,49 @@ a:hover {
     text-decoration: underline;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.1rem;
+    }
+
     .hero-text {
-        font-size: 1.2rem;
-        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
     }
 
-    nav ul {
-        display: flex;
-        gap: 20px;
-    }
-
-    .spotlights {
-        display: flex;
-        gap: 15px;
+    .header img {
+        width: 80px; /* Maior destaque para o avatar no mobile */
     }
 }
 
-header img {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    width: 60px; /* Maior destaque para o avatar no mobile */
-    margin-bottom: 10px;
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+
+.spotlights .spotlight-card {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    display: flex;
+    gap: 15px;
 }
