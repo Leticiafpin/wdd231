@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chamber of Commerce - Welcome to our organization. Learn more about us and our business members.">
+    <meta name="author" content="Leticia Figueiredo">
+    <title>Chamber Home Page - Leticia Figueiredo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/logo.png" alt="Chamber of Commerce Logo">
+        <h1>Welcome to the Chamber of Commerce</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Image Section -->
+        <section class="hero">
+            <img src="images/hero.jpg" alt="Beautiful cityscape of Faro">
+            <div class="hero-text">
+                <h2>Join Our Chamber</h2>
+                <p>Be a part of our growing community and take your business to the next level.</p>
+                <a href="join.html" class="cta-button">Join Now</a>
+            </div>
+        </section>
+
+        <!-- Current Events Section -->
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>Networking Night - April 10th, 2025</li>
+                <li>Small Business Expo - May 15th, 2025</li>
+                <li>Annual Awards Ceremony - June 20th, 2025</li>
+            </ul>
+        </section>
+
+        <!-- Weather Section -->
+        <section class="weather">
+            <h2>Current Weather</h2>
+            <p id="current-temp"></p>
+            <p id="weather-desc"></p>
+            <div id="forecast">
+                <p>Day 1: <span id="day1-forecast"></span></p>
+                <p>Day 2: <span id="day2-forecast"></span></p>
+                <p>Day 3: <span id="day3-forecast"></span></p>
+            </div>
+        </section>
+
+        <!-- Spotlight Section -->
+        <section class="spotlights">
+            <h2>Featured Members</h2>
+            <div id="spotlights-container"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Leticia Figueiredo | WDD 231</p>
+        <p id="lastModified"></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/script.js" defer></script>
+</body>
+</html>
