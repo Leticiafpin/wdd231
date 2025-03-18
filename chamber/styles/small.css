@@ -1,3 +1,56 @@
+:root {
+    --primary-color: #004b8d; /* Azul Marinho */
+    --secondary-color: #f4a261; /* Laranja Quente */
+    --background-color: #fdfdfd; /* Branco */
+    --text-color: #333333; /* Cinza Escuro */
+    --font-family: 'Roboto', sans-serif; /* Fonte Principal */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+}
+
 #members-container {
     display: grid;
     gap: 1rem;
@@ -27,7 +80,9 @@ header img {
 
 .hero {
     text-align: center;
-    position: relative;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 20px;
 }
 
 .hero img {
@@ -42,7 +97,7 @@ header img {
     transform: translate(-50%, -50%);
     color: white;
     background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    padding: 20px;
     border-radius: 5px;
 }
 
