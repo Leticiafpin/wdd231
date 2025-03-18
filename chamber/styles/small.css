@@ -105,3 +105,16 @@ header img {
     margin: 20px;
     text-align: center;
 }
+
+.spotlight-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.spotlight-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}

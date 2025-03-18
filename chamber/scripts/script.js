@@ -103,3 +103,35 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=Faro&units=metric&appid
         document.getElementById('current-temp').textContent = `${Math.round(data.main.temp)}°C`;
         document.getElementById('weather-desc').textContent = capitalizeWords(data.weather[0].description);
     });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const spotlightContainer = document.getElementById('spotlights-container');
+    
+        // Fetch JSON data
+        fetch('data/members.json')
+            .then(response => response.json())
+            .then(members => {
+                // Filtra membros gold (3) e silver (2)
+                const goldSilverMembers = members.filter(member => member.membership === 2 || member.membership === 3);
+    
+                // Seleciona 2 ou 3 membros aleatoriamente
+                const selected = goldSilverMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
+    
+                // Cria cartões de destaque
+                selected.forEach(member => {
+                    const card = document.createElement('div');
+                    card.classList.add('spotlight-card');
+                    card.innerHTML = `
+                        <img src="${member.image}" alt="${member.name}">
+                        <h3>${member.name}</h3>
+                        <p>${member.address}</p>
+                        <p>${member.phone}</p>
+                        <a href="${member.website}" target="_blank">Visit Website</a>
+                    `;
+                    spotlightContainer.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar os membros:', error));
+    });
+    
