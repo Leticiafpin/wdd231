@@ -71,3 +71,31 @@ nav ul li a:hover {
     display: flex;
     gap: 15px;
 }
+
+@media (min-width: 1024px) {
+    main {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    form {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .membership-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        flex: 1;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        padding: 15px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+}

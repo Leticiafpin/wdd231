@@ -37,69 +37,50 @@
 
     <main>
         <h1>Join the Chamber - Leticia Figueiredo</h1>
-
+            
         <!-- Formulário de Inscrição -->
-        <form action="thankyou.html" method="get">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required autocomplete="given-name" title="Enter your first name">
-
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required autocomplete="family-name" title="Enter your last name">
-
-            <label for="organization-title">Organization Title:</label>
-            <input type="text" id="organization-title" name="organization-title" autocomplete="organization-title" title="Enter your title within the organization" pattern="[A-Za-z\s-]{7,}">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@domain.com" title="Enter a valid email address">
-
-            <label for="phone">Mobile Phone:</label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Enter your mobile phone number">
-
-            <label for="organization">Business/Organization Name:</label>
-            <input type="text" id="organization" name="organization" required autocomplete="organization" title="Enter your business name">
-
-            <label for="membership">Membership Level:</label>
-            <select id="membership" name="membership">
-                <option value="np">Non-Profit Membership (Free)</option>
-                <option value="bronze">Bronze Membership</option>
-                <option value="silver">Silver Membership</option>
-                <option value="gold">Gold Membership</option>
-            </select>
-
-            <label for="description">Business Description:</label>
-            <textarea id="description" name="description" title="Describe your business"></textarea>
-
-            <input type="hidden" id="timestamp" name="timestamp" value="">
-
-            <input type="submit" value="Join Now">
-        </form>
+        <section class="form-container">
+            <h2>Join the Chamber</h2>
+            <form action="thankyou.html" method="get">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+    
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+    
+                <input type="submit" value="Join Now">
+            </form>
+        </section>
 
         <!-- Membership Cards -->
-        <div class="membership-cards">
-            <div class="card np">
+        <section class="membership-cards">
+            <div class="card">
                 <h3>Non-Profit Membership</h3>
-                <p>Perfect for non-profit organizations looking to connect.</p>
-                <button onclick="showModal('np-modal')">More Info</button>
+                <p>Great for organizations.</p>
+                <button onclick="showModal('np-modal')">Learn More</button>
             </div>
-
-            <div class="card bronze">
+    
+            <div class="card">
                 <h3>Bronze Membership</h3>
-                <p>Great for small businesses starting out.</p>
-                <button onclick="showModal('bronze-modal')">More Info</button>
+                <p>Ideal for small businesses.</p>
+                <button onclick="showModal('bronze-modal')">Learn More</button>
             </div>
-
-            <div class="card silver">
+    
+            <div class="card">
                 <h3>Silver Membership</h3>
-                <p>Enhanced networking and marketing benefits.</p>
-                <button onclick="showModal('silver-modal')">More Info</button>
+                <p>Enhanced networking.</p>
+                <button onclick="showModal('silver-modal')">Learn More</button>
             </div>
-
-            <div class="card gold">
+    
+            <div class="card">
                 <h3>Gold Membership</h3>
-                <p>Premium benefits including priority event access.</p>
-                <button onclick="showModal('gold-modal')">More Info</button>
+                <p>Premium benefits.</p>
+                <button onclick="showModal('gold-modal')">Learn More</button>
             </div>
-        </div>
+        </section>
 
         <!-- Membership Modals -->
         <div id="np-modal" class="modal">
