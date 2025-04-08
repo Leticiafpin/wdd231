@@ -80,9 +80,11 @@ a:hover {
     padding: 10px;
 }
 .spotlight-card img {
-    max-width: 80%;
-    margin-bottom: 0 auto;
+    max-width: 100px;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
+
 
 footer {
     background-color: var(--primary-color);
