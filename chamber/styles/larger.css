@@ -148,3 +148,25 @@ nav ul li a:hover {
         transform: scale(1.05);
     }
 }
+
+
+@media (min-width: 1025px) {
+    .discover-grid {
+        display: grid;
+        grid-template-areas: 
+            "title title"
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        gap: 20px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .discover img:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+    }
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Historic City Square",
+        "image": "images/city-square.webp",
+        "address": "123 Main St, Your City",
+        "description": "A vibrant square with shops, restaurants, and cultural events."
+    },
+    {
+        "name": "Nature Park",
+        "image": "images/nature-park.webp",
+        "address": "456 Greenway Dr, Your City",
+        "description": "A peaceful park with scenic trails and picnic areas."
+    },
+    {
+        "name": "Museum of History",
+        "image": "images/museum-history.webp",
+        "address": "789 Culture St, Your City",
+        "description": "Learn about the rich history of our community through interactive exhibits."
+    },
+    {
+        "name": "Local Farmers Market",
+        "image": "images/farmers-market.webp",
+        "address": "101 Market Ln, Your City",
+        "description": "Fresh produce, artisan goods, and local delicacies every Saturday."
+    },
+    {
+        "name": "Tech Innovation Center",
+        "image": "images/innovation-center.webp",
+        "address": "202 Tech Blvd, Your City",
+        "description": "A hub for entrepreneurs and startups driving technological advancement."
+    },
+    {
+        "name": "Concert Hall",
+        "image": "images/concert-hall.webp",
+        "address": "303 Music Ave, Your City",
+        "description": "Enjoy live music performances in a historic venue."
+    },
+    {
+        "name": "Sports Stadium",
+        "image": "images/sports-stadium.webp",
+        "address": "404 Champion Rd, Your City",
+        "description": "Home to local sports teams and major sporting events."
+    },
+    {
+        "name": "Botanical Garden",
+        "image": "images/botanical-garden.webp",
+        "address": "505 Green St, Your City",
+        "description": "Relax among a diverse collection of plants and flowers from around the world."
+    }
+]

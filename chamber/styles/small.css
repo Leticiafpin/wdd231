@@ -184,3 +184,15 @@ header img {
     }
 }
 
+@media (min-width: 1025px) {
+    .discover-grid {
+        display: grid;
+        grid-template-areas: 
+            "title title"
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        gap: 20px;
+    }
+}

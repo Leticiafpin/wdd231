@@ -1,13 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ** Atualização de Ano e Última Modificação **
-    const yearElement = document.getElementById("year");
-    const lastModifiedElement = document.getElementById("lastModified");
-    yearElement.textContent = new Date().getFullYear();
-    lastModifiedElement.textContent = `Last Modified: ${document.lastModified}`;
-
-    // ** Função para capitalizar palavras **
-    const capitalizeWords = (str) =>
-        str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = `Last Modified: ${document.lastModified}`;
 
     // ** Atualizar Previsão do Tempo **
     const apiKey = "YOUR_API_KEY"; // Substitua pela sua chave da API OpenWeatherMap
@@ -17,11 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(weatherUrl)
         .then(response => response.json())
         .then(data => {
-            // Atualiza dados do clima atual
             document.getElementById("current-temp").textContent = `${Math.round(data.list[0].main.temp)}°C`;
             document.getElementById("weather-desc").textContent = capitalizeWords(data.list[0].weather[0].description);
 
-            // Previsão para 3 dias
+            // Previsão para os próximos 3 dias
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`day${i}-forecast`).textContent = `${Math.round(data.list[i * 8].main.temp)}°C`;
             }
@@ -34,41 +27,62 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("data/members.json")
         .then(response => response.json())
         .then(members => {
-            // Filtra membros Gold (3) e Silver (2)
-            const goldSilverMembers = members.filter(member => member.membership === 2 || member.membership === 3);
-
-            // Seleciona 2 ou 3 membros aleatoriamente
+            const goldSilverMembers = members.filter(member => [2, 3].includes(member.membership));
             const selected = goldSilverMembers.sort(() => Math.random() - 0.5).slice(0, 3);
 
-            // Renderiza cada cartão
-            selected.forEach(member => {
-                const card = `
-                    <div class="spotlight-card">
-                        <img src="${member.image}" alt="${member.name}">
-                        <h3>${member.name}</h3>
-                        <p>${member.address}</p>
-                        <p>${member.phone}</p>
-                        <a href="${member.website}" target="_blank">Visit Website</a>
-                    </div>`;
-                spotlightContainer.innerHTML += card;
-            });
+            spotlightContainer.innerHTML = selected.map(member => `
+                <div class="spotlight-card">
+                    <img src="${member.image}" alt="${member.name}">
+                    <h3>${member.name}</h3>
+                    <p>${member.address}</p>
+                    <p>${member.phone}</p>
+                    <a href="${member.website}" target="_blank">Visit Website</a>
+                </div>
+            `).join("");
         })
         .catch(error => console.error("Erro ao carregar membros destaque:", error));
-});
 
-
-document.addEventListener("DOMContentLoaded", () => {
+    // ** Captura o Timestamp **
     document.getElementById("timestamp").value = new Date().toISOString();
 
-    window.showModal = function(id) {
-        document.getElementById(id).style.display = "block";
-    };
+    // ** Funções para abrir e fechar Modais **
+    window.showModal = (id) => document.getElementById(id).style.display = "block";
+    window.closeModal = (id) => document.getElementById(id).style.display = "none";
 
-    window.closeModal = function(id) {
-        document.getElementById(id).style.display = "none";
-    };
+    // ** Exibir mensagem de visita usando localStorage **
+    const visitMessage = document.getElementById("visit-message");
+    const lastVisit = localStorage.getItem("lastVisit");
+    const now = Date.now();
+
+    visitMessage.textContent = !lastVisit
+        ? "Welcome! Let us know if you have any questions."
+        : Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24)) < 1
+            ? "Back so soon! Awesome!"
+            : `You last visited ${Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24))} day${Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24)) > 1 ? "s" : ""} ago.`;
+
+    localStorage.setItem("lastVisit", now);
+
+    // ** Carregar Locais do `discover.html` **
+    const discoverContainer = document.getElementById("discover-container");
+
+    fetch("data/items.json")
+        .then(response => response.json())
+        .then(locations => {
+            discoverContainer.innerHTML = locations.map(location => `
+                <div class="discover-card">
+                    <h2>${location.name}</h2>
+                    <figure>
+                        <img src="${location.image}" alt="${location.name}">
+                    </figure>
+                    <address>${location.address}</address>
+                    <p>${location.description}</p>
+                    <button>Learn More</button>
+                </div>
+            `).join("");
+        })
+        .catch(error => console.error("Erro ao carregar locais:", error));
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("timestamp").value = new Date().toISOString();
-});
+// ** Função para capitalizar palavras **
+const capitalizeWords = (str) =>
+    str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
