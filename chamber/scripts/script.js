@@ -86,3 +86,34 @@ document.addEventListener("DOMContentLoaded", () => {
 // ** Função para capitalizar palavras **
 const capitalizeWords = (str) =>
     str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById("discover-container");
+
+    try {
+        const response = await fetch("data/items.json"); // Verifique se o caminho está correto
+        if (!response.ok) throw new Error("Erro ao carregar JSON");
+
+        const locations = await response.json();
+
+        locations.forEach(location => {
+            const card = document.createElement("div");
+            card.classList.add("discover-card");
+
+            card.innerHTML = `
+                <h2>${location.name}</h2>
+                <figure>
+                    <img src="${location.image}" alt="${location.name}">
+                </figure>
+                <address>${location.address}</address>
+                <p>${location.description}</p>
+                <button>Learn More</button>
+            `;
+
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error("Erro ao carregar locais:", error);
+        container.innerHTML = `<p>Erro ao carregar os dados. Verifique o JSON.</p>`;
+    }
+});

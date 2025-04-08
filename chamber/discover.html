@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join our Chamber of Commerce and connect with local businesses.">
+    <meta name="description" content="Discover key locations in our chamber area.">
     <meta name="author" content="Leticia Figueiredo">
     <title>Discover Chamber Area</title>
 
-<!-- Meta OG -->
-    <meta property="og:title" content="Join the Chamber - Leticia Figueiredo">
-    <meta property="og:description" content="Join our Chamber of Commerce and connect with local businesses.">
+    <!-- Meta OG -->
+    <meta property="og:title" content="Discover Chamber Area">
+    <meta property="og:description" content="Explore attractions and key locations in our chamber region.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://leticiafpin.github.io/wdd231/chamber/images/social-preview.jpg">
-    <meta property="og:url" content="https://leticiafpin.github.io/wdd231/chamber/join.html">
+    <meta property="og:image" content="https://leticiafpin.github.io/wdd231/chamber/images/discover-preview.jpg">
+    <meta property="og:url" content="https://leticiafpin.github.io/wdd231/chamber/discover.html">
     
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-
     <!-- CSS -->
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/discover.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 </head>
@@ -30,18 +29,20 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-        
+
     <main>
         <h1>Discover Chamber Area</h1>
 
+        <!-- Mensagem de visita -->
+        <p id="visit-message"></p>
+
         <!-- Container para exibir os locais de interesse -->
-        <div class="discover-grid" id="discover-container"></div>
-    
+        <section class="discover-grid" id="discover-container"></section>
     </main>
 
     <footer>
@@ -50,6 +51,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="scripts/script.js" defer></script>
+    <script src="scripts/discover.js" defer></script>
 </body>
 </html>
