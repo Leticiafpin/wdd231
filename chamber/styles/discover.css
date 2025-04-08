@@ -18,3 +18,62 @@
     height: auto;
     border-radius: 5px;
 }
+
+body {
+    overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto; /* Mantém alinhamento centralizado */
+    padding: 20px;
+}
+
+@media (min-width: 320px) {
+    .discover-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "title"
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+    }
+}
+
+@media (min-width: 641px) {
+    .discover-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "title title"
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+}
+
+@media (min-width: 1025px) {
+    .discover-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "title title title"
+            "card1 card2 card3"
+            "card4 card5 card6"
+            "card7 card8 .";
+    }
+}
+
+@media (min-width: 768px) {
+    .discover-card img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+    }
+}
