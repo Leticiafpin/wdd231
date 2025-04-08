@@ -37,9 +37,9 @@
         
     <main>
         <h1>Join the Chamber - Leticia Figueiredo</h1>
+        <div class="container">
         <!-- Formulário de Inscrição -->
-        <section class="form-container">
-        
+        <section class="form-section">
             <h2>Join the Chamber</h2>
             <form action="thankyou.html" method="get">
                 <label for="first-name">First Name:</label>
@@ -71,15 +71,16 @@
                 <br>
                 <label for="description">Business Description:</label>
                 <textarea id="description" name="description"></textarea>
-
+                <br>
                 <input type="hidden" id="timestamp" name="timestamp" value="">
+                <br>
                 <input type="submit" value="Join Now">
             </form>
         </section>
 
         <!-- Membership Cards -->
-        <section class="membership-cards">
-            <div class="card">
+        <section class="membership-section">
+            <div class="membership-cards">
                 <h3>Non-Profit Membership</h3>
                 <p>Great for organizations.</p>
                 <button onclick="showModal('np-modal')">Learn More</button>
@@ -102,42 +103,10 @@
                 <p>Premium benefits.</p>
                 <button onclick="showModal('gold-modal')">Learn More</button>
             </div>
-        </section>
-
-        <!-- Membership Modals -->
-        <div id="np-modal" class="modal">
-            <div class="modal-content">
-                <span onclick="closeModal('np-modal')" class="close">&times;</span>
-                <h2>Non-Profit Membership</h2>
-                <p>Perfect for non-profits who want to connect at no cost.</p>
-            </div>
         </div>
-
-        <div id="bronze-modal" class="modal">
-            <div class="modal-content">
-                <span onclick="closeModal('bronze-modal')" class="close">&times;</span>
-                <h2>Bronze Membership</h2>
-                <p>Basic membership with networking opportunities.</p>
-            </div>
-        </div>
-
-        <div id="silver-modal" class="modal">
-            <div class="modal-content">
-                <span onclick="closeModal('silver-modal')" class="close">&times;</span>
-                <h2>Silver Membership</h2>
-                <p>Additional advertising and event discounts included.</p>
-            </div>
-        </div>
-
-        <div id="gold-modal" class="modal">
-            <div class="modal-content">
-                <span onclick="closeModal('gold-modal')" class="close">&times;</span>
-                <h2>Gold Membership</h2>
-                <p>Premium access to business resources and promotional materials.</p>
-            </div>
-        </div>
-
-    </main>
+    </section>
+</div>
+</main>
 
     <footer>
         <p>&copy; <span id="year"></span> Chamber of Commerce | WDD 231</p>
