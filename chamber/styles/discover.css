@@ -1,37 +1,41 @@
+/* --- Reset de estilos básicos --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333; /* Texto escuro para melhor contraste */
+    background-color: #f5f5f5;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* --- Layout Responsivo --- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Estilização do Título --- */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* --- Container principal em Grid --- */
 .discover-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-.discover-card {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.discover-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-body {
-    overflow-x: hidden; /* Remove a rolagem horizontal */
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto; /* Mantém alinhamento centralizado */
-    padding: 20px;
-}
-
-@media (min-width: 320px) {
+/* --- Layout Responsivo: Mobile (320px - 640px) --- */
+@media (max-width: 640px) {
     .discover-grid {
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: 
             "title"
@@ -46,9 +50,9 @@ main {
     }
 }
 
+/* --- Layout Responsivo: Tablets (641px - 1024px) --- */
 @media (min-width: 641px) {
     .discover-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: 
             "title title"
@@ -59,9 +63,9 @@ main {
     }
 }
 
+/* --- Layout Responsivo: Desktop (1025px+) --- */
 @media (min-width: 1025px) {
     .discover-grid {
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas: 
             "title title title"
@@ -71,9 +75,58 @@ main {
     }
 }
 
+/* --- Estilos para Cartões --- */
+.discover-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.discover-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* --- Imagens Responsivas --- */
+.discover-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    loading: lazy; /* Lazy loading ativado */
+}
+
+/* --- Efeito Hover (somente telas maiores) --- */
 @media (min-width: 768px) {
     .discover-card img:hover {
         transform: scale(1.05);
-        transition: transform 0.3s ease-in-out;
     }
+}
+
+/* --- Botão "Learn More" --- */
+.discover-card button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.discover-card button:hover {
+    background-color: #ff9800; /* Mudança de cor ao passar o mouse */
+}
+
+/* --- Rodapé --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
 }
