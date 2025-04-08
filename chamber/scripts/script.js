@@ -68,3 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(id).style.display = "none";
     };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("timestamp").value = new Date().toISOString();
+});
