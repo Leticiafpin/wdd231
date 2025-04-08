@@ -55,3 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error("Erro ao carregar membros destaque:", error));
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("timestamp").value = new Date().toISOString();
+
+    window.showModal = function(id) {
+        document.getElementById(id).style.display = "block";
+    };
+
+    window.closeModal = function(id) {
+        document.getElementById(id).style.display = "none";
+    };
+});

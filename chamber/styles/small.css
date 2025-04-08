@@ -114,3 +114,37 @@ h1, h2, h3, h4, h5, h6 {
 header img {
     width: 80px; /* Maior destaque para o avatar no mobile */
 }
+
+
+.membership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    margin: 20% auto;
+    width: 60%;
+}
